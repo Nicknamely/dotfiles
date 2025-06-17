@@ -1,0 +1,3 @@
+[submodule "crucible"]
+	path = crucible
+	url = https://github.com/Nicknamely/crucible
