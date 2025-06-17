@@ -210,6 +210,7 @@ zvm_after_lazy_keybindings() {
 # Keybindings
 bindkey -s '^G' "tmux attach-session -t main\n"
 bindkey -s '^N' "nvim\n"
+bindkey -s '^E' "yazi\n"
 
 # General aliases
 # alias ls='ls --color=always'
@@ -218,8 +219,8 @@ alias neo='neo --defaultbg --color=gray'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ls='eza --icons=auto'
-alias ll='eza -l --show-symlinks'
-alias lll='eza -la'
+alias ll='eza -l --show-symlinks --icons=auto'
+alias lll='eza -la --icons=auto'
 alias c='clear'
 alias lzn='lazynpm'
 alias lzg='lazygit'
