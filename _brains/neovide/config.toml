@@ -1,0 +1,2 @@
+[env]
+PATH = "/home/nicknamely/.local/share/pnpm:/usr/local/bin:/usr/bin:/bin"

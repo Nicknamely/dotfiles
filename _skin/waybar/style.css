@@ -1,0 +1,115 @@
+/* === Base Styling === */
+* {
+  /* Requires `otf-font-awesome` and SpaceMono Nerd Font */
+  font-family:
+    "Fira Sans Semibold", FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  transition: background-color 0.3s ease-out;
+}
+
+window#waybar {
+  background: none;
+  /* background: rgba(30, 30, 43, 0.5); */
+  /* background: #1e1e2b; */
+  color: #c0caf5;
+  border-radius: 24px;
+  font-family:
+    SpaceMono Nerd Font,
+    feather;
+  transition: background-color 0.5s;
+}
+
+/* === Left Modules === */
+#clock,
+#workspaces,
+#tray,
+#submap {
+  background-color: #11111b;
+  border-radius: 24px;
+  border: none;
+  margin-top: 4px;
+  margin-left: 4px;
+  margin-right: 4px;
+  padding: 0 8px;
+}
+
+/* #workspaces, */
+/* #tray, */
+/* #submap { */
+/*   margin-right: 6px; */
+/* } */
+
+/* === Right Modules === */
+#idle_inhibitor,
+#battery,
+#cpu,
+#memory,
+#temperature,
+#pulseaudio,
+#bluetooth,
+#network,
+#backlight {
+  margin-top: 4px;
+  /* margin-bottom: 2px; */
+  background-color: #11111b;
+}
+
+/* idle_inhibitor needs unique spacing and border when activated */
+#idle_inhibitor {
+  margin-left: 4px;
+  margin-right: 8px;
+  border-radius: 24px;
+  padding: 0 16px 0 10px;
+}
+#idle_inhibitor.activated {
+  border: 1px solid #f38ba8;
+}
+
+#battery {
+  margin-left: 6px;
+  margin-right: 4px;
+  border-radius: 24px;
+  padding: 0 8px;
+}
+
+/* === System Monitor Modules (CPU, Memory, Temp, etc.) === */
+/* Chained bar layout */
+#cpu,
+#bluetooth,
+#backlight {
+  margin-left: 4px;
+  margin-right: 0;
+  padding: 0 8px;
+  border-radius: 24px 0 0 24px;
+}
+
+#memory {
+  margin: 0;
+  padding: 0 8px;
+  border-radius: 0;
+}
+
+#temperature,
+#network,
+#pulseaudio {
+  margin-left: 0;
+  margin-right: 4px;
+  padding: 0 8px;
+  border-radius: 0 24px 24px 0;
+}
+#bluetooth.connected {
+  color: #a6e3a1;
+}
+/* #battery.critical:not(.charging) { */
+/*   border: 1px solid hsl(344, 78%, 74%); */
+/* } */
+#battery.warning:not(.charging) {
+  border: 1px solid #f9e2af;
+}
+#battery.charging {
+  border: 1px solid #89b4fa;
+}
+#battery.full {
+  color: #89b4fa;
+}

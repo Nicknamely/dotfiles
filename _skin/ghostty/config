@@ -1,0 +1,15 @@
+# Disable gtk's theming
+window-theme = system
+gtk-titlebar = false
+gtk-wide-tabs = false
+gtk-adwaita = false
+
+# THEME 
+theme = catppuccin-mocha
+font-family = JetBrainsMonoNL Nerd Font
+background-opacity = 0.1
+
+# qol tweaks
+confirm-close-surface = false
+window-decoration = false
+window-padding-balance = true
