@@ -30,11 +30,10 @@ PanelWindow {
             running: true
 
             stdout: SplitParser {
-                onRead: (data) => {
+                onRead: data => {
                     return day.text = data;
                 }
             }
-
         }
 
         Timer {
@@ -43,7 +42,5 @@ PanelWindow {
             repeat: true
             onTriggered: dateProc.running = true
         }
-
     }
-
 }
