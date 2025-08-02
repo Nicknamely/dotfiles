@@ -123,7 +123,7 @@ function nvims() {
   local config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" Neovim Config  " --height=~50% --layout=reverse --border --exit-0)
   [[ -z $config ]] && echo "Nothing selected" && return
   [[ $config == "default" ]] && config="neovim"
-  NVIM_APPNAME=$config /bin/nvim "$@"
+  NVIM_APPNAME=$config nvim "$@"
 }
 
 # function templater() {
@@ -209,7 +209,7 @@ zvm_after_lazy_keybindings() {
 
 # Keybindings
 bindkey -s '^G' "tmux attach-session -t main\n"
-bindkey -s '^N' "nvim\n"
+bindkey -s '^H' "nvim\n"
 bindkey -s '^E' "yazi\n"
 
 # General aliases
