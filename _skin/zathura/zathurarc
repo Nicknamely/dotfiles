@@ -2,5 +2,5 @@ include themes/catppuccin-mocha
 set selection-clipboard clipboard
 set recolor-keephue true
 # Keymap
-map <C-i> recolor
+map <C-c> recolor
 
