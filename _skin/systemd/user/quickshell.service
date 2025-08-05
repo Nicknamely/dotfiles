@@ -1,0 +1,13 @@
+[Unit]
+Description=Quickshell Clock Widget
+PartOf=graphical-session.target
+Requires=graphical-session.target
+After=graphical-session.target
+
+[Service]
+ExecStart=/usr/bin/quickshell -p %h/.config/quickshell/Clock.qml # %h expands to $HOME
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=graphical-session.target

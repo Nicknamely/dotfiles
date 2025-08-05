@@ -1,0 +1,14 @@
+[Unit]
+Description=Rclone Mount for OneDrive Personal
+PartOf=default.target
+After=default.target network-online.target # network-online.target is still crucial for network access
+
+[Service]
+Type=simple # For long-running process
+ExecStart=/usr/bin/rclone --vfs-cache-mode writes --vfs-cache-max-age 24h --vfs-cache-max-size 10G mount OneDrive-Personal: %h/Documents/OneDrive-Personal/
+ExecStop=/usr/bin/fusermount -uz %h/Documents/OneDrive-Personal/ # Clean unmount
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=default.target

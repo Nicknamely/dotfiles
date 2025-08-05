@@ -1,0 +1,10 @@
+[Unit]
+Description=Reconnect Bluetooth device after resume
+After=suspend.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/bash -c 'bluetoothctl connect E8:EE:CC:AD:87:CA'
+
+[Install]
+WantedBy=default.target
