@@ -10,7 +10,7 @@ return {
       transparent_background = true,
       float = {
         transparent = false,
-        solid = true,
+        solid = false,
       },
       term_colors = false,
     },
