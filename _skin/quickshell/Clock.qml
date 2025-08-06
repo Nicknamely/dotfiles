@@ -1,6 +1,5 @@
-import QtQuick
+import QtQuick 2.15
 import Quickshell
-import Quickshell.Io
 import Quickshell.Wayland
 
 PanelWindow {
@@ -14,6 +13,20 @@ PanelWindow {
         right: true
     }
 
+    property var daysOfWeek: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+    property var now: new Date()
+    property string dayName: daysOfWeek[now.getDay()]
+
+    Timer {
+        interval: 60000  // 1 minute
+        running: true
+        repeat: true
+        onTriggered: {
+            now = new Date()
+            dayName = daysOfWeek[now.getDay()]
+        }
+    }
+
     Text {
         id: day
 
@@ -23,24 +36,6 @@ PanelWindow {
         color: "#cdd6f4"
         font.family: "SAKURATA"
 
-        Process {
-            id: dateProc
-
-            command: ["date", "+%A"]
-            running: true
-
-            stdout: SplitParser {
-                onRead: data => {
-                    return day.text = data;
-                }
-            }
-        }
-
-        Timer {
-            interval: 60000
-            running: true
-            repeat: true
-            onTriggered: dateProc.running = true
-        }
+        text: dayName
     }
 }
